@@ -9,15 +9,31 @@ from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
 from scipy.ndimage import zoom
 import cv2
+import res_rc
+
 
 from CONTROLADOR import ControladorLogin, ControladorDicom
 
 
 # ------------------------ VENTANA LOGIN ------------------------
-class VentanaLogin(QDialog):
+class VentanaBase(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.setWindowFlags(Qt.FramelessWindowHint) 
+        self.setAttribute(Qt.WA_TranslucentBackground)
+
+    def conectar_boton_cerrar(self):
+        if hasattr(self, "botonCerrar"):
+            self.botonCerrar.clicked.connect(self.close)
+class VentanaLogin(VentanaBase):
     def __init__(self):
         super().__init__()
         loadUi("VentanaLogin.ui", self)
+        self.conectar_boton_cerrar()  # ✅ CONEXIÓN DE BOTÓN 'X'
+
+
+        
+
         self.setWindowTitle("Login")
         self.controlador = ControladorLogin(self)
         self.boton_ingresar.clicked.connect(self.intentar_login)
@@ -41,6 +57,7 @@ class VentanaLogin(QDialog):
         self.menu_senales = MenuSenales(self)
         self.menu_senales.show()
         self.hide()
+
 
 # ------------------------ MENÚ PRINCIPAL IMÁGENES ------------------------
 class MenuImagenes(QDialog):
@@ -452,7 +469,6 @@ class MenuMat(QDialog):
     def volver(self):
         self.menu_anterior.show()
         self.close()
-
 
 
 # ------------------------ EJECUCIÓN ------------------------

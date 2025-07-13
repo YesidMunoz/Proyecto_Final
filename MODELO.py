@@ -11,7 +11,7 @@ class ModeloUsuario:
         self.config = {
             "host": "localhost",
             "user": "root",
-            "password": "info2",
+            "password": "123456",
             "database": "sistema_biomedico",
             "port": 3306
         }
