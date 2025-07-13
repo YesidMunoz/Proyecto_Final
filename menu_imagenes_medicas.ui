@@ -25,26 +25,6 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QPushButton" name="boton_cargar_dicom">
-      <property name="styleSheet">
-       <string notr="true">
-QPushButton#boton_cargar_dicom{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_cargar_dicom:hover{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_cargar_dicom:pressed{
-	padding-left:5px;
-	padding-top:5px;
-background-color:rgba(105,118,132,200);
-}
-
-</string>
-      </property>
       <property name="text">
        <string>Cargar carpeta DICOM</string>
       </property>
@@ -52,25 +32,6 @@ background-color:rgba(105,118,132,200);
     </item>
     <item>
      <widget class="QPushButton" name="boton_ver_metadatos">
-      <property name="styleSheet">
-       <string notr="true">
-QPushButton#boton_ver_metadatos{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_ver_metadatos:hover{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_ver_metadatos:pressed{
-	padding-left:5px;
-	padding-top:5px;
-background-color:rgba(105,118,132,200);
-}
-</string>
-      </property>
       <property name="text">
        <string>Ver metadatos del estudio</string>
       </property>
@@ -78,25 +39,6 @@ background-color:rgba(105,118,132,200);
     </item>
     <item>
      <widget class="QPushButton" name="boton_mostrar_cortes">
-      <property name="styleSheet">
-       <string notr="true">
-QPushButton#boton_mostrar_cortes{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_mostrar_cortes:hover{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_mostrar_cortes:pressed{
-	padding-left:5px;
-	padding-top:5px;
-background-color:rgba(105,118,132,200);
-}
-</string>
-      </property>
       <property name="text">
        <string>Mostrar cortes (axial, coronal, sagital)</string>
       </property>
@@ -112,25 +54,6 @@ background-color:rgba(105,118,132,200);
      <width>209</width>
      <height>23</height>
     </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">
-QPushButton#boton_volver{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_volver:hover{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_volver:pressed{
-	padding-left:5px;
-	padding-top:5px;
-background-color:rgba(105,118,132,200);
-}
-</string>
    </property>
    <property name="text">
     <string>Volver al menu anterior</string>
@@ -148,25 +71,6 @@ background-color:rgba(105,118,132,200);
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <widget class="QPushButton" name="boton_cargar_nifti">
-      <property name="styleSheet">
-       <string notr="true">
-QPushButton#boton_cargar_nifti{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_cargar_nifti:hover{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_cargar_nifti:pressed{
-	padding-left:5px;
-	padding-top:5px;
-background-color:rgba(105,118,132,200);
-}
-</string>
-      </property>
       <property name="text">
        <string>Cargar archivo NIfTI</string>
       </property>
@@ -174,25 +78,6 @@ background-color:rgba(105,118,132,200);
     </item>
     <item>
      <widget class="QPushButton" name="boton_convertir_a_nifti">
-      <property name="styleSheet">
-       <string notr="true">
-QPushButton#boton_convertir_a_nifti{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_convertir_a_nifti:hover{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_convertir_a_nifti:pressed{
-	padding-left:5px;
-	padding-top:5px;
-background-color:rgba(105,118,132,200);
-}
-</string>
-      </property>
       <property name="text">
        <string>Convertir DICOM A NIfIi</string>
       </property>
@@ -200,25 +85,6 @@ background-color:rgba(105,118,132,200);
     </item>
     <item>
      <widget class="QPushButton" name="boton_guardar_datos">
-      <property name="styleSheet">
-       <string notr="true">
-QPushButton#boton_guardar_datos{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_guardar_datos:hover{
-	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
-	color:rgba(255,255,255,210);
-	border-radius:5px
-}
-QPushButton#boton_guardar_datos:pressed{
-	padding-left:5px;
-	padding-top:5px;
-background-color:rgba(105,118,132,200);
-}
-</string>
-      </property>
       <property name="text">
        <string>GUARDAR EN BASE DE DATOS</string>
       </property>
@@ -239,32 +105,6 @@ background-color:rgba(105,118,132,200);
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>10</y>
-     <width>1381</width>
-     <height>731</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">
-background-color:rgba(0,0,0,100);
-border-radius:15px;
-
-
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <zorder>label</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>boton_volver</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>label_mensaje</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -3,15 +3,17 @@ import os
 import numpy as np
 import pydicom
 import nibabel as nib
-import glob
+#import glob
+import pandas as pd
+import cv2
+from scipy.io import loadmat
 
-# --------- BASE DE DATOS (LOGIN) ---------
 class ModeloUsuario:
     def __init__(self):
         self.config = {
             "host": "localhost",
             "user": "root",
-            "password": "123456",
+            "password": "info2",
             "database": "sistema_biomedico",
             "port": 3306
         }
@@ -42,6 +44,7 @@ class ModeloUsuario:
         cursor.execute(consulta, (tipo_archivo, nombre_archivo, ruta_archivo, id_usuario))
         conexion.commit()
         conexion.close()
+        print(f"[DEBUG] Guardando {tipo_archivo} - {nombre_archivo}")
 
     def mostrar_imagenes_guardadas(self):
         conexion = mysql.connector.connect(**self.config)
@@ -52,8 +55,6 @@ class ModeloUsuario:
             print(fila)
         conexion.close()
 
-
-# --------- CLASE DICOM ---------
 class DICOM:
     def __init__(self, carpeta):
         self.__carpeta = carpeta
@@ -131,8 +132,6 @@ class DICOM:
     def get_ruta_nifti(self):
         return os.path.join(self.__carpeta, f"{self.__slices[0].PatientID}.nii.gz")
 
-
-# --------- CLASE NIFTI ---------
 class NIfTI:
     def __init__(self, ruta_archivo):
         self.ruta_archivo = ruta_archivo
@@ -152,12 +151,7 @@ class NIfTI:
     def get_pixel_spacing(self):
         return self.pixel_spacing
 
-
-### CLASE IMAGENES CONVENCIONALES
-import cv2
-import numpy as np
-
-class ProcesadorImagenConvencional:
+class ModeloImagenConvencional:
     def cargar_imagen(self, ruta):
         imagen = cv2.imread(ruta)
         if imagen is None:
@@ -231,21 +225,186 @@ class ProcesadorImagenConvencional:
         # cv2.bilateralFilter(src, diameter, sigmaColor, sigmaSpace)
         return cv2.bilateralFilter(imagen, d=9, sigmaColor=75, sigmaSpace=75)
 
+    def guardar_en_bd(self, tipo_archivo, nombre, ruta):
+        conexion = mysql.connector.connect(
+            host='localhost', user='root', password='info2', database='sistema_biomedico'
+        )
+        cursor = conexion.cursor()
+        consulta = "INSERT INTO otros_archivos (tipo_archivo, nombre_archivo, ruta_archivo) VALUES (%s, %s, %s)"
+        valores = (tipo_archivo, nombre, ruta)
+        cursor.execute(consulta, valores)
+        conexion.commit()
+        conexion.close()
 
-from scipy.io import loadmat
-import numpy as np
-
-class ProcesadorMat:
+class   ModeloMat:
     def __init__(self):
         self.datos = {}
 
     def cargar_archivo(self, ruta):
+        """Carga un archivo .mat y almacena su contenido en self.datos"""
         self.datos = loadmat(ruta)
+        self.ruta_archivo = ruta
+
+    def get_todas_las_llaves(self):
+        """Devuelve todas las claves del archivo, incluyendo metadatos y estructuras."""
+        if not self.datos:
+            return []
+        return list(self.datos.keys())
 
     def get_variables_validas(self):
+        """Retorna las claves de variables tipo ndarray en el archivo cargado"""
         if not self.datos:
             return []
         return [
             key for key, value in self.datos.items()
             if not key.startswith("__") and isinstance(value, np.ndarray)
         ]
+
+    def obtener_array(self, clave):
+        """Devuelve el array asociado a una clave"""
+        return self.datos.get(clave)
+
+    def get_promedio(self, clave):
+        """Calcula el promedio de un array según su número de dimensiones"""
+        matriz = self.obtener_array(clave)
+        if matriz is None:
+            raise ValueError("Variable no encontrada.")
+        if matriz.ndim == 3:
+            promedio = np.mean(matriz, axis=(1, 2))
+        elif matriz.ndim == 2:
+            promedio = np.mean(matriz, axis=1)
+        elif matriz.ndim == 1:
+            promedio = np.mean(matriz)
+            promedio = np.array([promedio])
+        else:
+            raise ValueError("No se puede promediar.")
+        return promedio
+
+    def get_segmento(self, clave, canal=0, ensayo=0, inicio=0, final=None):
+        """Extrae un segmento de un array dado su clave y parámetros"""
+        matriz = self.obtener_array(clave)
+        if matriz is None:
+            raise ValueError("Variable no encontrada.")
+        if matriz.ndim == 3:
+            if final is None:
+                final = matriz.shape[1]
+            return matriz[canal, inicio:final, ensayo]
+        elif matriz.ndim == 2:
+            if final is None:
+                final = matriz.shape[1]
+            return matriz[canal, inicio:final]
+        elif matriz.ndim == 1:
+            if final is None:
+                final = matriz.shape[0]
+            return matriz[inicio:final]
+        else:
+            raise ValueError("No se puede graficar.")
+        
+    def get_ruta_archivo(self):
+        return self.ruta_archivo
+
+    def guardar_mat(self):
+        """Guarda el archivo .mat actual en la base de datos."""
+        if not hasattr(self, 'ruta_archivo') or not self.ruta_archivo:
+            raise ValueError("No hay archivo cargado.")
+
+        nombre_archivo = os.path.basename(self.ruta_archivo)
+        print("Guardando nombre:", nombre_archivo)
+
+        conexion = mysql.connector.connect(
+            host='localhost', user='root', password='info2', database='sistema_biomedico'
+        )
+        cursor = conexion.cursor()
+        
+        # Asegúrate de que los parámetros coincidan con los valores
+        consulta = "INSERT INTO otros_archivos (tipo_archivo, nombre_archivo, ruta_archivo) VALUES (%s, %s, %s)"
+        valores = ("MAT", nombre_archivo, self.ruta_archivo)
+        
+        cursor.execute(consulta, valores)
+        conexion.commit()
+        conexion.close()
+
+
+
+    def mostrar_imagenes_guardadas(self):
+        # Opcional: solo para debug o visualizar en consola
+        import mysql.connector
+        conexion = mysql.connector.connect(
+            host='localhost', user='root', password='info2', database='sistema_biomedico'
+        )
+        cursor = conexion.cursor()
+        cursor.execute("SELECT * FROM otros_archivos")
+        for fila in cursor.fetchall():
+            print(fila)
+        conexion.close()
+
+class ModeloCSV:
+    def __init__(self):
+        self.dataframe_csv = None 
+
+    def cargar_csv(self, ruta_archivo): 
+        """Carga un archivo CSV en un DataFrame de pandas."""
+        self.dataframe_csv = pd.read_csv(ruta_archivo) 
+        self.ruta_archivo = ruta_archivo
+
+        return self.dataframe_csv 
+
+    def get_nombre_columna(self): 
+        """Retorna los nombres de las columnas del DataFrame."""
+        if self.dataframe_csv is not None: 
+            return self.dataframe_csv.columns.tolist() 
+        return []
+
+    def nombres_columnas_num(self): 
+        """Retorna los nombres de las columnas que contienen datos numéricos."""
+        if self.dataframe_csv is not None: 
+            return self.dataframe_csv.select_dtypes(include=np.number).columns.tolist() 
+        return []
+
+    def obtener_datos_para_grafico(self, columna_x, columna_y): 
+        """
+        Retorna los datos de las columnas especificadas para graficar.
+        Realiza una validación básica de tipo de dato.
+        """
+        if self.dataframe_csv is None: 
+            raise ValueError("No hay datos CSV cargados.")
+        if columna_x not in self.dataframe_csv.columns or columna_y not in self.dataframe_csv.columns: 
+            raise ValueError("Columnas especificadas no existen en el DataFrame.")
+
+        datos_x = self.dataframe_csv[columna_x] 
+        datos_y = self.dataframe_csv[columna_y] 
+
+        if not pd.api.types.is_numeric_dtype(datos_x) or not pd.api.types.is_numeric_dtype(datos_y): 
+            raise TypeError("Ambas columnas deben contener datos numéricos para graficar.")
+
+        return datos_x, datos_y 
+
+    def lista_dataframe(self): 
+        """
+        Retorna el DataFrame como una lista de listas, útil para llenar QTableWidget.
+        También retorna los nombres de las columnas.
+        """
+        if self.dataframe_csv is not None: 
+            return self.dataframe_csv.values.tolist(), self.dataframe_csv.columns.tolist() 
+        return [], []
+
+    def guardar_csv(self):
+            """Guarda el archivo .csv actual en la base de datos."""
+            if not hasattr(self, 'ruta_archivo') or not self.ruta_archivo:
+                raise ValueError("No hay archivo cargado.")
+
+            nombre_archivo = os.path.basename(self.ruta_archivo)
+            print("Guardando nombre:", nombre_archivo)
+
+            conexion = mysql.connector.connect(
+                host='localhost', user='root', password='info2', database='sistema_biomedico'
+            )
+            cursor = conexion.cursor()
+            
+            # Asegúrate de que los parámetros coincidan con los valores
+            consulta = "INSERT INTO otros_archivos (tipo_archivo, nombre_archivo, ruta_archivo) VALUES (%s, %s, %s)"
+            valores = ("CSV", nombre_archivo, self.ruta_archivo)
+            
+            cursor.execute(consulta, valores)
+            conexion.commit()
+            conexion.close()

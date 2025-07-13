@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1047</width>
-    <height>580</height>
+    <width>1006</width>
+    <height>534</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -281,6 +281,19 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="boton_guardar">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>480</y>
+     <width>151</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>GUARDAR EN BASE DE DATOS</string>
    </property>
   </widget>
  </widget>

@@ -1,0 +1,335 @@
+﻿ID,diagnosis,Age,Sex,MMSE,FAB
+0001,Healthy ageing,86,F,27,14
+0002,Healthy ageing,79,F,28,10
+0003,Healthy ageing,80,F,27,9
+0004,Healthy ageing,82,F,28,9
+0005,Healthy ageing,86,F,26,13
+0006,Healthy ageing,81,F,28,17
+0007,Healthy ageing,88,M,29,14
+0008,Healthy ageing,53,M,30,16
+0009,Healthy ageing,79,F,29,12
+0010,Healthy ageing,70,M,30,16
+0011,Healthy ageing,69,M,27,16
+0012,Healthy ageing,69,F,30,15
+0013,Healthy ageing,69,M,30,12
+0014,Healthy ageing,74,F,30,14
+0015,Healthy ageing,76,M,30,15
+0016,Healthy ageing,70,M,30,15
+0017,Healthy ageing,74,F,29,17
+0018,Healthy ageing,65,F,N/A,N/A
+0019,Healthy ageing,74,M,29,18
+0020,Healthy ageing,66,F,30,13
+0021,Healthy ageing,77,F,29,14
+0022,Healthy ageing,86,M,29,15
+0023,Healthy ageing,81,F,29,16
+0024,Healthy ageing,71,F,N/A,N/A
+0025,Healthy ageing,87,M,28,12
+0026,Healthy ageing,68,F,27,17
+0027,Healthy ageing,69,M,30,17
+0028,Healthy ageing,43,M,30,17
+0029,Healthy ageing,83,M,30,10
+0030,Healthy ageing,79,F,29,14
+0031,Healthy ageing,71,M,29,16
+0032,Healthy ageing,83,F,30,15
+0033,Healthy ageing,65,M,30,17
+0034,Healthy ageing,87,F,28,13
+0035,Healthy ageing,76,M,30,15
+0036,Healthy ageing,80,M,29,14
+0037,Healthy ageing,76,M,28,9
+0038,Healthy ageing,77,F,30,13
+0039,Healthy ageing,78,F,29,16
+0040,Healthy ageing,70,F,28,15
+0041,Healthy ageing,69,F,29,13
+0042,Healthy ageing,76,F,25,13
+0043,Healthy ageing,43,F,29,17
+0044,Healthy ageing,85,F,29,15
+0045,Healthy ageing,62,F,30,17
+0046,Healthy ageing,77,F,28,16
+0047,Healthy ageing,80,F,29,13
+0048,Healthy ageing,70,F,30,17
+0049,Healthy ageing,77,F,28,13
+0050,Healthy ageing,53,M,30,16
+0051,Healthy ageing,50,F,29,15
+0052,Healthy ageing,81,F,29,15
+0053,Healthy ageing,77,F,30,14
+0054,Healthy ageing,49,F,29,15
+0055,Healthy ageing,64,M,30,14
+0056,Healthy ageing,74,F,28,16
+0057,Healthy ageing,63,M,25,16
+0058,Healthy ageing,68,M,N/A,N/A
+0059,Healthy ageing,78,M,N/A,N/A
+0060,Healthy ageing,79,F,N/A,N/A
+0061,Healthy ageing,80,F,N/A,N/A
+0062,Healthy ageing,79,F,28,11
+0063,MCI,71,F,27,14
+0064,MCI,79,F,28,13
+0065,MCI,80,F,28,11
+0066,MCI,73,M,23,14
+0067,MCI,76,F,29,12
+0068,MCI,75,M,29,13
+0069,MCI,77,M,29,12
+0070,MCI,74,F,28,14
+0071,MCI,71,F,26,13
+0072,MCI,82,M,23,13
+0073,MCI,81,F,28,13
+0074,MCI,82,F,25,10
+0075,MCI,79,F,30,11
+0076,MCI,68,M,26,15
+0077,MCI,82,F,30,14
+0078,MCI,76,F,23,11
+0079,MCI,76,F,27,12
+0080,MCI,74,F,24,14
+0081,MCI,77,M,25,11
+0082,MCI,78,F,27,13
+0083,MCI,67,F,29,15
+0084,MCI,63,F,28,16
+0085,MCI,85,F,25,7
+0086,MCI,76,F,27,14
+0087,MCI,72,F,29,13
+0088,MCI,73,M,25,13
+0089,MCI,79,F,23,14
+0090,MCI,73,M,29,15
+0091,MCI,72,M,26,13
+0092,MCI,52,M,28,15
+0093,MCI,79,F,28,11
+0094,MCI,80,F,23,9
+0095,MCI,77,F,28,14
+0096,MCI,80,M,29,12
+0097,MCI,67,F,N/A,N/A
+0098,MCI,76,M,N/A,N/A
+0099,MCI,84,M,N/A,N/A
+0100,MCI,83,F,29,12
+0101,MCI,78,M,27,18
+0102,MCI,73,F,28,16
+0103,MCI,62,F,26,17
+0104,MCI,77,M,26,9
+0105,MCI,74,F,28,14
+0106,MCI,74,M,28,13
+0107,MCI,77,F,27,13
+0108,MCI,87,F,29,12
+0109,MCI,64,F,29,15
+0110,MCI,78,M,30,14
+0111,MCI,78,M,27,14
+0112,MCI,79,F,29,14
+0113,MCI,76,F,23,10
+0114,MCI,81,F,27,13
+0115,MCI,74,F,27,12
+0116,MCI,75,F,29,11
+0117,MCI,77,M,25,10
+0118,MCI,68,M,N/A,N/A
+0119,MCI,71,F,30,18
+0120,MCI,72,M,21,13
+0121,MCI,76,M,28,11
+0122,MCI,86,M,30,12
+0123,MCI,85,F,24,13
+0124,MCI,60,F,29,14
+0125,Dementia,66,M,19,8
+0126,Dementia,88,F,23,9
+0127,Dementia,81,M,18,7
+0128,Dementia,89,M,19,10
+0129,Dementia,86,F,23,13
+0130,Dementia,82,F,24,11
+0131,Dementia,80,F,22,14
+0132,Dementia,84,F,22,13
+0133,Dementia,87,F,26,10
+0134,Dementia,81,M,21,8
+0135,Dementia,91,F,15,5
+0136,Dementia,85,F,28,11
+0137,Dementia,85,F,20,11
+0138,Dementia,64,M,17,10
+0139,Dementia,75,M,23,12
+0140,Dementia,84,F,21,11
+0141,Dementia,78,M,2,4
+0142,Dementia,85,F,20,8
+0143,Dementia,80,F,28,11
+0144,Dementia,75,M,18,7
+0145,Dementia,77,M,19,10
+0146,Dementia,69,F,N/A,N/A
+0147,Dementia,88,M,15,6
+0148,Dementia,74,F,21,8
+0149,Dementia,88,F,28,12
+0150,Dementia,72,M,28,9
+0151,Dementia,78,M,9,7
+0152,Dementia,70,M,22,8
+0153,Dementia,74,F,26,10
+0154,Dementia,83,M,8,3
+0155,Dementia,89,M,19,10
+0156,Dementia,89,F,20,12
+0157,Dementia,79,M,21,10
+0158,Dementia,78,M,21,9
+0159,Dementia,84,M,25,12
+0160,Dementia,74,F,27,11
+0161,Dementia,72,F,17,11
+0162,Dementia,76,F,14,3
+0163,Dementia,67,M,26,13
+0164,Dementia,80,F,28,8
+0165,Dementia,83,F,19,5
+0166,Dementia,87,M,12,9
+0167,Dementia,59,F,11,5
+0168,Dementia,80,F,25,12
+0169,Dementia,76,F,N/A,N/A
+0170,Dementia,76,F,N/A,N/A
+0171,Dementia,82,F,24,11
+0172,Dementia,76,M,18,12
+0173,Dementia,84,F,16,6
+0174,Dementia,74,M,21,14
+0175,Dementia,72,M,16,8
+0176,Dementia,81,F,23,13
+0177,Dementia,89,F,14,5
+0178,Dementia,82,M,29,12
+0179,Dementia,85,F,21,9
+0180,Dementia,76,F,29,14
+0181,Dementia,82,M,10,3
+0182,Dementia,77,F,24,7
+0183,Dementia,76,M,23,9
+0184,Dementia,84,M,23,8
+0185,Dementia,83,M,25,13
+0186,Dementia,90,F,18,8
+0187,Dementia,72,F,10,8
+0188,Dementia,73,M,21,6
+0189,Dementia,68,F,16,11
+0190,Dementia,82,F,13,7
+0191,Dementia,83,F,21,9
+0192,Dementia,76,F,28,14
+0193,Dementia,86,M,22,10
+0194,Dementia,78,F,26,11
+0195,Dementia,79,F,26,15
+0196,Dementia,82,F,25,15
+0197,Dementia,78,M,17,14
+0198,Dementia,84,M,20,7
+0199,Dementia,78,F,23,14
+0200,Dementia,76,F,10,6
+0201,Dementia,71,F,18,8
+0202,Dementia,89,M,10,3
+0203,Dementia,88,M,20,8
+0204,Dementia,77,F,23,13
+0205,Dementia,83,M,23,6
+0206,Dementia,83,F,N/A,N/A
+0207,Dementia,93,F,N/A,N/A
+0208,Dementia,86,M,N/A,N/A
+0209,Dementia,83,F,21,14
+0210,Dementia,71,M,20,11
+0211,Dementia,77,F,22,15
+0212,Dementia,91,M,27,11
+0213,Dementia,75,M,18,10
+0214,Dementia,76,F,25,7
+0215,Dementia,82,F,23,9
+0216,Dementia,89,M,15,5
+0217,Dementia,80,M,17,4
+0218,Dementia,77,F,23,8
+0219,Dementia,80,M,25,11
+0220,Dementia,78,F,21,14
+0221,Dementia,90,F,24,9
+0222,Dementia,77,F,23,12
+0223,Dementia,78,M,26,12
+0224,Dementia,67,M,25,15
+0225,Dementia,85,F,17,12
+0226,Dementia,74,M,13,7
+0227,Dementia,77,M,27,12
+0228,Dementia,74,F,22,17
+0229,Dementia,84,M,25,11
+0230,Dementia,81,F,21,13
+0231,Dementia,64,M,24,5
+0232,Dementia,77,M,25,13
+0233,Dementia,82,F,12,11
+0234,Dementia,89,F,13,9
+0235,Dementia,89,M,N/A,N/A
+0236,Dementia,81,M,12,7
+0237,Dementia,74,M,23,9
+0238,Dementia,94,F,12,11
+0239,Dementia,93,F,23,9
+0240,Dementia,82,M,22,10
+0241,Dementia,79,M,N/A,N/A
+0242,Dementia,73,F,25,12
+0243,Dementia,73,M,21,10
+0245,Dementia,90,F,9,6
+0246,Dementia,83,F,24,9
+0247,Dementia,89,F,16,6
+0248,Dementia,70,F,23,12
+0249,Dementia,88,M,22,8
+0250,Dementia,82,F,19,9
+0251,Dementia,75,F,N/A,N/A
+0252,Dementia,77,F,20,9
+0253,Dementia,72,M,19,10
+0254,Dementia,69,F,23,14
+0255,Dementia,78,F,23,14
+0256,Dementia,80,M,27,11
+0257,Dementia,77,M,20,9
+0258,Dementia,86,F,17,6
+0259,Dementia,77,F,12,5
+0260,Dementia,77,M,11,6
+0261,Dementia,82,F,25,13
+0262,Dementia,86,M,19,11
+0263,Dementia,80,F,25,8
+0264,Dementia,81,F,30,17
+0265,Dementia,85,F,12,8
+0266,Dementia,82,F,23,16
+0267,Dementia,88,M,18,13
+0268,Dementia,79,F,20,10
+0269,Dementia,84,F,22,10
+0270,Dementia,83,M,13,7
+0271,Dementia,87,F,17,10
+0272,Dementia,82,F,16,10
+0273,Dementia,86,F,22,11
+0274,Dementia,86,F,N/A,N/A
+0275,Dementia,81,M,N/A,N/A
+0276,Dementia,89,F,N/A,N/A
+0277,Dementia,91,F,N/A,N/A
+0278,Dementia,74,F,N/A,N/A
+0279,Dementia,88,F,23,11
+0280,Dementia,86,M,21,14
+0281,Dementia,70,M,24,10
+0282,Dementia,88,F,23,9
+0283,Dementia,84,F,20,9
+0284,Dementia,77,F,24,10
+0285,Dementia,78,F,24,12
+0286,Dementia,81,F,14,5
+0287,Dementia,71,M,22,5
+0288,Dementia,79,F,19,9
+0289,Dementia,82,M,25,10
+0290,Dementia,73,F,27,4
+0291,Dementia,91,M,25,13
+0292,Dementia,74,M,19,5
+0293,Dementia,82,M,9,6
+0294,Dementia,74,F,3,3
+0295,Dementia,75,M,23,10
+0296,Dementia,72,F,9,8
+0297,Dementia,74,F,23,9
+0298,Dementia,82,F,12,8
+0299,Dementia,76,F,23,10
+0300,Dementia,89,M,19,10
+0301,Dementia,83,F,15,10
+0302,Dementia,78,M,26,9
+0303,Dementia,89,M,23,10
+0304,Dementia,82,M,23,6
+0305,Dementia,78,M,20,11
+0306,Dementia,71,F,21,11
+0307,Dementia,81,M,26,10
+0308,Dementia,84,M,17,8
+0309,Dementia,62,F,19,11
+0310,Dementia,83,F,23,11
+0311,Dementia,82,M,24,9
+0312,Others,77,F,29,13
+0313,Others,70,M,27,13
+0314,Others,73,F,29,14
+0315,Others,62,M,30,16
+0316,Others,76,F,21,13
+0317,Others,84,F,N/A,N/A
+0318,Others,79,F,N/A,N/A
+0319,Others,82,M,N/A,N/A
+0320,Others,63,M,N/A,N/A
+0321,Others,71,F,18,12
+0322,Others,55,F,30,16
+0323,Others,86,M,25,13
+0324,Others,81,F,5,5
+0325,Others,73,M,30,14
+0326,Others,83,F,30,14
+0327,Others,72,F,26,14
+0328,Others,77,F,24,13
+0329,Others,65,M,30,15
+0330,Others,76,F,30,13
+0331,Others,53,M,29,16
+0332,Others,71,F,29,16
+0333,Others,61,F,27,17
+0334,Others,51,F,17,10
+0335,Others,66,M,30,16

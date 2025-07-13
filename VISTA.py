@@ -1,39 +1,26 @@
 import sys
+import os
 import numpy as np
 import nibabel as nib
-from PyQt5.QtWidgets import (
-    QApplication, QDialog, QMessageBox, QFileDialog
-)
+import matplotlib.pyplot as plt
+import cv2
+from CONTROLADOR import ControladorLogin, ControladorDicom, ControladorImagenConvencional, ControladorMenuSenales, ControladorMenuMat, ControladorCSV
+from PyQt5.QtWidgets import (QApplication, QDialog, QMessageBox, QFileDialog,QVBoxLayout,QTableWidgetItem)
 from PyQt5.QtGui import QPixmap, QImage
 from PyQt5.QtCore import Qt
 from PyQt5.uic import loadUi
-from scipy.ndimage import zoom
-import cv2
-import res_rc
+from scipy.ndimage import zoom 
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
 
-from CONTROLADOR import ControladorLogin, ControladorDicom
+
 
 
 # ------------------------ VENTANA LOGIN ------------------------
-class VentanaBase(QDialog):
-    def __init__(self):
-        super().__init__()
-        self.setWindowFlags(Qt.FramelessWindowHint) 
-        self.setAttribute(Qt.WA_TranslucentBackground)
-
-    def conectar_boton_cerrar(self):
-        if hasattr(self, "botonCerrar"):
-            self.botonCerrar.clicked.connect(self.close)
-class VentanaLogin(VentanaBase):
+class VentanaLogin(QDialog):
     def __init__(self):
         super().__init__()
         loadUi("VentanaLogin.ui", self)
-        self.conectar_boton_cerrar()  # ✅ CONEXIÓN DE BOTÓN 'X'
-
-
-        
-
         self.setWindowTitle("Login")
         self.controlador = ControladorLogin(self)
         self.boton_ingresar.clicked.connect(self.intentar_login)
@@ -52,12 +39,9 @@ class VentanaLogin(VentanaBase):
         self.hide()
 
     def abrir_menu_senales(self):
-        print("📣 Se ejecutó abrir_menu_senales")  # DEPURACIÓN
-        QMessageBox.information(self, "Debug", "Se ejecutó abrir_menu_senales")
         self.menu_senales = MenuSenales(self)
         self.menu_senales.show()
         self.hide()
-
 
 # ------------------------ MENÚ PRINCIPAL IMÁGENES ------------------------
 class MenuImagenes(QDialog):
@@ -85,7 +69,6 @@ class MenuImagenes(QDialog):
     def volver_login(self):
         self.login_window.show()
         self.close()
-
 
 # ------------------------ MENÚ IMÁGENES MÉDICAS ------------------------
 class MenuImagenesMedicas(QDialog):
@@ -186,7 +169,7 @@ class MenuImagenesMedicas(QDialog):
         self.ventana_cortes.show()
         self.hide()
 
-# ------------------------ VENTANA DE CORTES ------------------------
+# ------------------------ VENTANA DE CORTES (sliders) ------------------------
 class VentanaCortes(QDialog):
     def __init__(self, volumen, pixel_spacing, menu_anterior):
         super().__init__()
@@ -250,13 +233,6 @@ class VentanaCortes(QDialog):
         self.mostrar_en_label(self.normalizar_img(corte_resized), self.label_sagital)
 
 # ------------------------ MENÚ IMÁGENES CONVENCIONALES ------------------------
-from PyQt5.QtWidgets import QDialog, QFileDialog
-from PyQt5.QtGui import QPixmap, QImage
-from PyQt5.QtCore import Qt
-from PyQt5.uic import loadUi
-import cv2
-from CONTROLADOR import ControladorImagenConvencional
-
 class MenuImagenesConvencionales(QDialog):
     def __init__(self, menu_anterior):
         super().__init__()
@@ -290,6 +266,7 @@ class MenuImagenesConvencionales(QDialog):
         self.boton_filtro_extra.clicked.connect(self.aplicar_filtro_extra)  # ✅ Nuevo botón
         self.boton_reiniciar.clicked.connect(self.reiniciar_imagen)
         self.boton_volver.clicked.connect(self.volver_al_menu)
+        self.boton_guardar.clicked.connect(self.controlador.guardar_en_bd)
 
         self.habilitar_botones(False)
 
@@ -404,16 +381,13 @@ class MenuImagenesConvencionales(QDialog):
                 self.label_resultado_celulas.setText("")
         except Exception as e:
             print(f"❌ Error al reiniciar imagen: {e}")
-
+    def mostrar_mensaje(self, mensaje):
+        QMessageBox.information(self, "Mensaje", mensaje)
     def volver_al_menu(self):
         self.menu_anterior.show()
         self.close()
 
 # ------------------------ MENÚ PRINCIPAL SEÑALES ------------------------
-from PyQt5.QtWidgets import QDialog
-from PyQt5.uic import loadUi
-from CONTROLADOR import ControladorMenuSenales
-
 class MenuSenales(QDialog):
     def __init__(self, login_window):
         super().__init__()
@@ -424,12 +398,17 @@ class MenuSenales(QDialog):
 
         # Conectar botones a métodos locales
         self.boton_mat.clicked.connect(self.abrir_menu_mat)
-        #self.boton_csv.clicked.connect(self.abrir_menu_csv)
+        self.boton_CSV.clicked.connect(self.abrir_menu_csv) 
         self.boton_salir.clicked.connect(self.salir)
 
     def abrir_menu_mat(self):
-        self.ventana_mat = MenuMat(self)
+        self.ventana_mat = MenuMAT(self)
         self.ventana_mat.show()
+        self.hide()
+    
+    def abrir_menu_csv(self):
+        self.ventana_csv = MenuCSV(self) 
+        self.ventana_csv.show()
         self.hide()
 
 
@@ -437,43 +416,190 @@ class MenuSenales(QDialog):
         self.login_window.show()
         self.close()
 
-### MENU MAT
-
-from PyQt5.QtWidgets import QDialog, QFileDialog
-from PyQt5.uic import loadUi
-from CONTROLADOR import ControladorMenuMat
-
-class MenuMat(QDialog):
+# ------------------------ MENÚ MAT  ------------------------
+class MenuMAT(QDialog): 
     def __init__(self, menu_anterior):
         super().__init__()
-        loadUi("menu_mat.ui", self)
-        self.setWindowTitle("Procesamiento de Señales - .mat")
-        self.menu_anterior = menu_anterior
-        self.controlador = ControladorMenuMat(self)
+        self.menu_anterior = menu_anterior  # Guarda referencia al menú anterior
+        loadUi("vista_mat.ui", self)
+        self.setWindowTitle("Menú de visualización de señales .mat")
+        self.habilita_botones_mat(cargar=True)
+        self.controlador = ControladorMenuMat(self) 
+        # Crear la figura y canvas de matplotlib
+        self.figure = plt.figure()
+        self.canvas = FigureCanvas(self.figure)
 
-        self.boton_cargar_mat.clicked.connect(self.controlador.cargar_archivo_mat)
-        self.boton_volver.clicked.connect(self.volver)
+        # Agregar canvas al widget de la interfaz
+        layout = QVBoxLayout(self.widget_grafica)  # ← asegúrate que este widget exista en el .ui
+        layout.addWidget(self.canvas)
 
-    def mostrar_variables_en_combo(self, variables):
-        self.combo_variables.clear()
-        self.combo_variables.addItems(variables)
+        # Conectar botón volver si existe
+        if hasattr(self, 'boton_volver'):
+            self.boton_volver.clicked.connect(self.volver_al_menu)
 
-    def mostrar_mensaje(self, texto):
-        from PyQt5.QtWidgets import QMessageBox
-        QMessageBox.information(self, "Mensaje", texto)
-
-    def mostrar_error(self, texto):
-        from PyQt5.QtWidgets import QMessageBox
-        QMessageBox.critical(self, "Error", texto)
-
-    def volver(self):
+    def volver_al_menu(self):
         self.menu_anterior.show()
         self.close()
 
+    def mostrar_mensaje(self, mensaje):
+        QMessageBox.information(self, "Información", mensaje)
 
-# ------------------------ EJECUCIÓN ------------------------
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    ventana = VentanaLogin()
-    ventana.show()
-    sys.exit(app.exec_())
+    def mostrar_error(self, mensaje):
+        QMessageBox.warning(self, "Error", mensaje)
+
+    def habilita_botones_mat(self, cargar=False, graficar=False, segmento=False, promedio=False, rango=False,guardar=False):
+        self.boton_cargar.setEnabled(cargar)
+        self.boton_graficar.setEnabled(graficar)
+        self.boton_segmento.setEnabled(segmento)
+        self.boton_promedio.setEnabled(promedio)
+        self.boton_rango_canales.setEnabled(rango)
+        self.boton_guardar.setEnabled(guardar)
+
+    def actualizar_forma(self, texto):
+        self.label_forma.setText(texto)
+
+    def mostrar_variables_en_combo(self, llaves):
+        self.combo_llaves.clear()
+        self.combo_llaves.addItems(llaves)
+
+    def get_llave_seleccionada(self):
+        return self.combo_llaves.currentText()
+
+    def get_parametros_segmento(self, ndim):
+        try:
+            inicio = int(self.input_inicio.text())
+            fin = int(self.input_fin.text())
+            canal = int(self.input_canal.text())
+            if ndim == 3:
+                ensayo = int(self.input_ensayo.text())
+                return (inicio, fin, canal, ensayo)
+            elif ndim == 2:
+                return (inicio, fin, canal)
+            elif ndim == 1:
+                return (inicio, fin)
+            else:
+                return None
+        except ValueError:
+            return None
+
+    def get_rango_canales(self):
+        try:
+            return (
+                int(self.input_canal_inicio.text()),
+                int(self.input_canal_fin.text())
+            )
+        except ValueError:
+            return None
+
+    def configurar_campos_segmento(self, ndim):
+        self.input_canal.setEnabled(ndim >= 2)
+        self.input_ensayo.setEnabled(ndim == 3)
+
+    def mostrar_grafica(self, datos, titulo):
+        self.figure.clear()
+        ax = self.figure.add_subplot(111)
+        ax.plot(datos)
+        ax.set_title(titulo)
+        ax.set_xlabel("Muestras")
+        ax.set_ylabel("Amplitud")
+        self.canvas.draw()
+
+    def mostrar_promedio(self, datos, titulo):
+        self.figure.clear()
+        ax = self.figure.add_subplot(111)
+        ax.stem(datos)
+        ax.set_title(titulo)
+        ax.set_xlabel("Canales")
+        ax.set_ylabel("Promedio")
+        self.canvas.draw()
+
+    def mostrar_rango_canales(self, datos_dict, titulo):
+        self.figure.clear()
+        ax = self.figure.add_subplot(111)
+
+        offset = 0
+        for canal, datos in datos_dict.items():
+            ax.plot(np.arange(len(datos)), datos + offset, label=f"C {canal}")
+            offset += np.max(np.abs(datos)) * 3
+
+        ax.set_title(titulo)
+        ax.set_xlabel("Muestras")
+        ax.set_ylabel("Amplitud (desplazada)")
+        ax.legend(
+            loc='center left',
+            bbox_to_anchor=(1.01, 0.5),
+            borderaxespad=0.
+        )
+
+        self.canvas.draw()
+
+# ------------------------ MENU CSV ------------------------
+class MenuCSV(QDialog):
+    def __init__(self, menu_anterior):
+        super().__init__()
+        self.menu_anterior = menu_anterior
+        loadUi("vista_csv.ui", self)
+        self.setWindowTitle("Visualización de Archivos CSV")
+        self.label_grafico.setAlignment(Qt.AlignCenter)
+
+        # Controlador
+        self.controlador = ControladorCSV(self)
+
+        # Conexiones de botones
+        self.boton_cargar.clicked.connect(self.controlador.cargar_csv)
+        self.boton_graficar.clicked.connect(self.graficar_click)
+        self.boton_volver.clicked.connect(self.volver_al_menu)
+        self.boton_guardar_csv.clicked.connect(self.controlador.guardar_en_bd)
+
+    def volver_al_menu(self):
+        self.menu_anterior.show()
+        self.close()
+
+    def mostrar_datos_csv(self, datos, encabezados):
+        self.tabla_csv.setRowCount(len(datos))
+        self.tabla_csv.setColumnCount(len(encabezados))
+        self.tabla_csv.setHorizontalHeaderLabels(encabezados)
+        for i, fila in enumerate(datos):
+            for j, item in enumerate(fila):
+                self.tabla_csv.setItem(i, j, QTableWidgetItem(str(item)))
+
+    def actualizar_combobox_columnas(self, columnas):
+        self.combo_x.clear()
+        self.combo_y.clear()
+        self.combo_x.addItems(columnas)
+        self.combo_y.addItems(columnas)
+
+    def mostrar_mensaje(self, mensaje):
+        self.label_estado.setText(mensaje)
+
+   
+    def crear_grafico(self, datos_x, datos_y, eje_x, eje_y):
+        fig = plt.figure(figsize=(6, 4), dpi=100)
+        ax = fig.add_subplot(111)
+        ax.scatter(datos_x, datos_y)
+        ax.set_xlabel(eje_x)
+        ax.set_ylabel(eje_y)
+        fig.tight_layout()
+
+        archivo_temporal = "grafico_temp.png"
+        fig.savefig(archivo_temporal)
+        plt.close(fig)
+
+        # Cargar imagen y ajustarla al QLabel correctamente
+        pixmap = QPixmap(archivo_temporal)
+        pixmap = pixmap.scaled(
+            self.label_grafico.size(),  # <- este es tu QLabel real
+            Qt.KeepAspectRatio,
+            Qt.SmoothTransformation
+        )
+        self.label_grafico.setPixmap(pixmap)
+
+        if os.path.exists(archivo_temporal):
+            os.remove(archivo_temporal)
+
+    def graficar_click(self):
+        columna_x = self.combo_x.currentText()
+        columna_y = self.combo_y.currentText()
+        self.controlador.generar_grafico_dispersion(columna_x, columna_y)
+
+    
