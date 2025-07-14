@@ -13,39 +13,124 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>80</y>
-     <width>252</width>
-     <height>131</height>
+     <x>0</x>
+     <y>0</y>
+     <width>421</width>
+     <height>321</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="boton_mat">
-      <property name="text">
-       <string>Trabajar con archivos .MAT</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="boton_CSV">
-      <property name="text">
-       <string>Trabajar con archivos CSV</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="boton_salir">
-      <property name="text">
-       <string>Salir</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="styleSheet">
+    <string notr="true">background-color:qlineargradient(spread:pad, x1:0.15625, y1:1, x2:1, y2:0, stop:0 rgba(213, 213, 213, 255), stop:0.583333 rgba(213, 213, 213, 255))
+</string>
+   </property>
+   <widget class="QPushButton" name="boton_mat">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>30</y>
+      <width>251</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton#boton_mat{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_mat:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_mat:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string>Trabajar con archivos .MAT</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_salir">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>220</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton#boton_salir{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_salir:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_salir:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string>Salir</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_CSV">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>130</y>
+      <width>251</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton#boton_CSV{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_CSV:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_CSV:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}</string>
+    </property>
+    <property name="text">
+     <string>Trabajar con archivos CSV</string>
+    </property>
+   </widget>
   </widget>
+  <zorder>widget</zorder>
+  <zorder>layoutWidget</zorder>
  </widget>
  <resources/>
  <connections/>

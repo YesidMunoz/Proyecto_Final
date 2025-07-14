@@ -6,92 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>487</width>
-    <height>338</height>
+    <width>587</width>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>221</width>
-     <height>201</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="boton_cargar_dicom">
-      <property name="text">
-       <string>Cargar carpeta DICOM</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="boton_ver_metadatos">
-      <property name="text">
-       <string>Ver metadatos del estudio</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="boton_mostrar_cortes">
-      <property name="text">
-       <string>Mostrar cortes (axial, coronal, sagital)</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QPushButton" name="boton_volver">
-   <property name="geometry">
-    <rect>
-     <x>120</x>
-     <y>270</y>
-     <width>209</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Volver al menu anterior</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>40</y>
-     <width>211</width>
-     <height>201</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item>
-     <widget class="QPushButton" name="boton_cargar_nifti">
-      <property name="text">
-       <string>Cargar archivo NIfTI</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="boton_convertir_a_nifti">
-      <property name="text">
-       <string>Convertir DICOM A NIfIi</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="boton_guardar_datos">
-      <property name="text">
-       <string>GUARDAR EN BASE DE DATOS</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QLabel" name="label_mensaje">
    <property name="geometry">
     <rect>
@@ -105,6 +26,263 @@
     <string/>
    </property>
   </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>611</width>
+     <height>451</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:qlineargradient(spread:pad, x1:0.15625, y1:1, x2:1, y2:0, stop:0 rgba(213, 213, 213, 255), stop:0.583333 rgba(213, 213, 213, 255))
+</string>
+   </property>
+   <widget class="QPushButton" name="boton_volver">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>330</y>
+      <width>251</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#boton_volver{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_volver:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_volver:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Volver al menu anterior</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_ver_metadatos">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>130</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton#boton_ver_metadatos{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_ver_metadatos:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_ver_metadatos:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Ver metadatos del estudio</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_cargar_dicom">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton#boton_cargar_dicom{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_cargar_dicom:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_cargar_dicom:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Cargar carpeta DICOM</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_mostrar_cortes">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#boton_mostrar_cortes{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_mostrar_cortes:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_mostrar_cortes:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Mostrar cortes  (axial, coronal, sagital)</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_convertir_a_nifti">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>130</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#boton_convertir_a_nifti{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_convertir_a_nifti:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_convertir_a_nifti:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Convertir DICOM A NIfIi</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_cargar_nifti">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>40</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton#boton_cargar_nifti{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_cargar_nifti:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_cargar_nifti:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Cargar archivo NIfTI</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_guardar_datos">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>220</y>
+      <width>251</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#boton_guardar_datos{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_guardar_datos:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+QPushButton#boton_guardar_datos:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Guardar💾</string>
+    </property>
+   </widget>
+  </widget>
+  <zorder>widget</zorder>
+  <zorder>label_mensaje</zorder>
  </widget>
  <resources/>
  <connections/>

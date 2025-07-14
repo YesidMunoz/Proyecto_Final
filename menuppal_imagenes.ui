@@ -6,45 +6,137 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>492</width>
+    <height>374</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>60</y>
-     <width>252</width>
-     <height>131</height>
+     <x>-10</x>
+     <y>-10</y>
+     <width>531</width>
+     <height>431</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QPushButton" name="boton_imagmed">
-      <property name="text">
-       <string>Trabajar con Imágenes Médicas (DICOM/NIfTI)</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="boton_imagconven">
-      <property name="text">
-       <string>Trabajar con Imágenes Convencionales (JPG/PNG)</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="boton_salir_imagenes">
-      <property name="text">
-       <string>Salir</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+   <property name="styleSheet">
+    <string notr="true">background-color:qlineargradient(spread:pad, x1:0.15625, y1:1, x2:1, y2:0, stop:0 rgba(213, 213, 213, 255), stop:0.583333 rgba(213, 213, 213, 255))</string>
+   </property>
+   <widget class="QPushButton" name="boton_salir_imagenes">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>290</y>
+      <width>131</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Franklin Gothic Heavy</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton#boton_salir_imagenes{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+QPushButton#boton_salir_imagenes:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+QPushButton#boton_salir_imagenes:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+}</string>
+    </property>
+    <property name="text">
+     <string>Salir</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_imagmed">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>391</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Franklin Gothic Heavy</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#boton_imagmed{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+QPushButton#boton_imagmed:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+QPushButton#boton_imagmed:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+}</string>
+    </property>
+    <property name="text">
+     <string>Trabajar con Imágenes Médicas (DICOM/NIfTI)</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="boton_imagconven">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>180</y>
+      <width>391</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Franklin Gothic Heavy</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#boton_imagconven{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+QPushButton#boton_imagconven:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px
+}
+QPushButton#boton_imagconven:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+}</string>
+    </property>
+    <property name="text">
+     <string>Trabajar con Imágenes Convencionales (JPG/PNG)</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

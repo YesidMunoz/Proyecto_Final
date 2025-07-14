@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>867</width>
+    <width>868</width>
     <height>780</height>
    </rect>
   </property>
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>380</y>
+     <y>400</y>
      <width>801</width>
      <height>371</height>
     </rect>
@@ -31,6 +31,12 @@
      <width>351</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Franklin Gothic Demi Cond</family>
+     <pointsize>10</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>FORMA DE LA MATRIZ</string>
@@ -48,6 +54,30 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QPushButton" name="boton_cargar">
+      <property name="styleSheet">
+       <string notr="true">QPushButton#boton_cargar{
+    background-color:qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(213, 213, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(0, 0, 0, 189);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+    font-size: 14pt;
+}
+
+QPushButton#boton_cargar:hover {
+    background-color: qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(233, 233, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(255, 255, 255, 210);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+
+QPushButton#boton_cargar:pressed {
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: rgba(105, 118, 132, 200);
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+      </property>
       <property name="text">
        <string>📂 Cargar archivo .mat</string>
       </property>
@@ -58,6 +88,30 @@
     </item>
     <item>
      <widget class="QPushButton" name="boton_graficar">
+      <property name="styleSheet">
+       <string notr="true">QPushButton#boton_graficar{
+    background-color:qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(213, 213, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(0, 0, 0, 189);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+    font-size: 14pt;
+}
+
+QPushButton#boton_graficar:hover {
+    background-color: qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(233, 233, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(255, 255, 255, 210);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+
+QPushButton#boton_graficar:pressed {
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: rgba(105, 118, 132, 200);
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+      </property>
       <property name="text">
        <string>📈 Graficar señal completa</string>
       </property>
@@ -65,6 +119,30 @@
     </item>
     <item>
      <widget class="QPushButton" name="boton_promedio">
+      <property name="styleSheet">
+       <string notr="true">QPushButton#boton_promedio{
+    background-color:qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(213, 213, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(0, 0, 0, 189);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+    font-size: 14pt;
+}
+
+QPushButton#boton_promedio:hover {
+    background-color: qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(233, 233, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(255, 255, 255, 210);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+
+QPushButton#boton_promedio:pressed {
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: rgba(105, 118, 132, 200);
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+      </property>
       <property name="text">
        <string> Promediar Señal y graficarla</string>
       </property>
@@ -78,12 +156,18 @@
      <x>370</x>
      <y>20</y>
      <width>401</width>
-     <height>311</height>
+     <height>336</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <item>
      <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <family>Franklin Gothic Medium</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Segmento de muestras (inicio - fin) </string>
       </property>
@@ -111,6 +195,12 @@
     </item>
     <item>
      <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <family>Franklin Gothic Medium</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Canal (único)</string>
       </property>
@@ -128,6 +218,12 @@
     </item>
     <item>
      <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <family>Franklin Gothic Medium</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Ensayo (único)</string>
       </property>
@@ -145,13 +241,43 @@
     </item>
     <item>
      <widget class="QPushButton" name="boton_segmento">
+      <property name="styleSheet">
+       <string notr="true">QPushButton#boton_segmento{
+    background-color:qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(213, 213, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(0, 0, 0, 189);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+    font-size: 14pt;
+}
+
+QPushButton#boton_segmento:hover {
+    background-color: qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(233, 233, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(255, 255, 255, 210);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+
+QPushButton#boton_segmento:pressed {
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: rgba(105, 118, 132, 200);
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+      </property>
       <property name="text">
-       <string>&quot;📊 Graficar Segmento</string>
+       <string>📊 Graficar Segmento</string>
       </property>
      </widget>
     </item>
     <item>
      <widget class="QLabel" name="label_4">
+      <property name="font">
+       <font>
+        <family>Franklin Gothic Medium</family>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Rango de canales:</string>
       </property>
@@ -179,6 +305,30 @@
     </item>
     <item>
      <widget class="QPushButton" name="boton_rango_canales">
+      <property name="styleSheet">
+       <string notr="true">QPushButton#boton_rango_canales{
+    background-color:qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(213, 213, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(0, 0, 0, 189);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+    font-size: 14pt;
+}
+
+QPushButton#boton_rango_canales:hover {
+    background-color: qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(233, 233, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(255, 255, 255, 210);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+
+QPushButton#boton_rango_canales:pressed {
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: rgba(105, 118, 132, 200);
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+      </property>
       <property name="text">
        <string>📉 Graficar Rango de Canales</string>
       </property>
@@ -186,33 +336,130 @@
     </item>
    </layout>
   </widget>
-  <widget class="QPushButton" name="boton_volver">
-   <property name="geometry">
-    <rect>
-     <x>440</x>
-     <y>340</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>volver</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="boton_guardar">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>340</y>
-     <width>171</width>
+     <x>550</x>
+     <y>360</y>
+     <width>271</width>
      <height>23</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#boton_guardar{
+    background-color:qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(213, 213, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(0, 0, 0, 189);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+    font-size: 10pt;
+}
+
+QPushButton#boton_guardar:hover {
+    background-color: qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(233, 233, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(255, 255, 255, 210);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+
+QPushButton#boton_guardar:pressed {
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: rgba(105, 118, 132, 200);
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+   </property>
    <property name="text">
-    <string>GUARDAR EN BASE DE DATOS</string>
+    <string>💾GUARDAR</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>891</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image:url(:/img/QS.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size:contain; /* o prueba &quot;contain&quot; si quieres que no recorte */
+background-color: rgba(255, 255, 255, 0.8); /* más opaco */
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>881</width>
+     <height>791</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+background-color:rgba(0,0,0,100);
+border-radius:15px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="boton_volver">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>360</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#boton_volver{
+    background-color:qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(213, 213, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(0, 0, 0, 189);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+    font-size: 14pt;
+}
+
+QPushButton#boton_volver:hover {
+    background-color: qlineargradient(spread:pad, x1:0.198, y1:0.903, x2:1, y2:0, stop:0.354167 rgba(233, 233, 213, 255), stop:0.661458 rgba(147, 147, 147, 255));
+    color: rgba(255, 255, 255, 210);
+    border-radius: 5px;
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+
+QPushButton#boton_volver:pressed {
+    padding-left: 5px;
+    padding-top: 5px;
+    background-color: rgba(105, 118, 132, 200);
+    font-family: &quot;Franklin Gothic Heavy&quot;;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Volver</string>
+   </property>
+  </widget>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>widget_grafica</zorder>
+  <zorder>label_forma</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>boton_guardar</zorder>
+  <zorder>boton_volver</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
  <connections/>
 </ui>

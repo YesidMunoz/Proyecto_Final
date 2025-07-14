@@ -1,0 +1,40 @@
+--------boton
+
+QPushButton#boton_cargar_dicom{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(20,47, 78, 219), stop:1 rgba(85, 98, 112, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: "Franklin Gothic Heavy";
+}
+QPushButton#boton_cargar_dicom:hover{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(40,67, 98, 219), stop:1 rgba(105, 118, 132, 255));
+	color:rgba(255,255,255,210);
+	border-radius:5px;
+	font-family: "Franklin Gothic Heavy";
+}
+QPushButton#boton_cargar_dicom:pressed{
+	padding-left:5px;
+	padding-top:5px;
+background-color:rgba(105,118,132,200);
+font-family: "Franklin Gothic Heavy";
+}
+
+
+............................. label
+
+background-color:rgba(0,0,0,100);
+border-radius:15px;
+
+
+
+--------------------------- campos
+
+background-color:rgba(0,0,0,0);
+border:none;
+border-bottom:2px solid rgba(105,118,132,225);
+color:rgba(0,0,0,1);
+padding-bottom:7px;
+text-aling:center;
+
+------------------ fondo
+background-color:qlineargradient(spread:pad, x1:0.15625, y1:1, x2:1, y2:0, stop:0 rgba(213, 213, 213, 255), stop:0.583333 rgba(213, 213, 213, 255))
