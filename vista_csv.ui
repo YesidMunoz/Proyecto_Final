@@ -7,11 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>717</width>
-    <height>582</height>
+    <height>579</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(217, 220, 225);
+border-radius:15px;</string>
   </property>
   <widget class="QLabel" name="label_grafico">
    <property name="geometry">
@@ -74,35 +78,33 @@ QPushButton#boton_cargar:pressed {
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
        <widget class="QLabel" name="label">
-        <property name="font">
-         <font>
-          <family>Franklin Gothic Medium</family>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
         <property name="text">
          <string>Columna X:</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="combo_x"/>
+       <widget class="QComboBox" name="combo_x">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:15px;</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_2">
-        <property name="font">
-         <font>
-          <family>Franklin Gothic Medium</family>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
         <property name="text">
          <string>Columna Y:</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="combo_y"/>
+       <widget class="QComboBox" name="combo_y">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+border-radius:15px;</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="boton_graficar">
@@ -220,53 +222,7 @@ QPushButton#boton_volver:pressed {
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>721</width>
-     <height>591</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border-image:url(:/img/QS.jpg);
-background-position: center;
-background-repeat: no-repeat;
-background-size:contain; /* o prueba &quot;contain&quot; si quieres que no recorte */
-background-color: rgba(255, 255, 255, 0.8); /* más opaco */
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>731</width>
-     <height>581</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">
-background-color:rgba(0,0,0,100);
-border-radius:15px;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <zorder>label_3</zorder>
-  <zorder>label_4</zorder>
-  <zorder>label_grafico</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

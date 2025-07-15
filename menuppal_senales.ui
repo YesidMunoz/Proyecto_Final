@@ -63,7 +63,7 @@ font-family: &quot;Franklin Gothic Heavy&quot;;
    <widget class="QPushButton" name="boton_salir">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>140</x>
       <y>220</y>
       <width>111</width>
       <height>51</height>
@@ -129,8 +129,6 @@ font-family: &quot;Franklin Gothic Heavy&quot;;
     </property>
    </widget>
   </widget>
-  <zorder>widget</zorder>
-  <zorder>layoutWidget</zorder>
  </widget>
  <resources/>
  <connections/>
